@@ -3,7 +3,8 @@ class Solution:
         """
         understanding:
             given a array of strs
-            group the anagrams together into a 2d array
+            group the anagrams together into a 2d array where each list in the array contains 
+            a group of anagrams
 
         approach:
             1. grouping with a hashmap
@@ -29,6 +30,20 @@ class Solution:
             else:
                 matching_strings[sorted_str] = [s]
             
+        return list(matching_strings.values())
+
+
+        # second approach: Space: O(n * m) Time: O(n * m)
+
+                # each new key will have a empty list as a value automatically
+        matching_strings = defaultdict(list)
+
+        for s in strs:
+            ord_array = [0] * 26
+            for c in s:
+                ord_array[ord(c) - ord('a')] += 1
+            matching_strings[tuple(ord_array)].append(s)
+
         return list(matching_strings.values())
 
         
