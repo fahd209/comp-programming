@@ -14,6 +14,7 @@ class Solution:
         """
 
 
+        # my solution
         numCount = {}
 
         for n in nums:
@@ -22,4 +23,27 @@ class Solution:
         for key in numCount:
             if (numCount[key]) >= (len(nums) / 2):
                 return key
+
+
+                # Time: O(n)
+        # Space: O(1)
+        # count = 0
+        # res = 0
+
+        # for n in nums:
+        #     if res == n:
+        #         count += 1
+        #     elif res != n and count == 0:
+        #         res = n
+        #         count += 1
+        #     else:
+        #         count -= 1
+
+
+        # for n in nums:
+        #     numCount[n] = 1 + numCount.get(n, 0)
+        #     res = n if numCount[n] > maxCount else res
+        #     maxCount =  max(numCount[n], maxCount)
+        # return res
+        
         
