@@ -21,3 +21,17 @@ class Solution:
 
 
 # neetcode
+# Time: O(n)
+# Space: O(1)
+        # group colors
+        color_count = [0] * 3
+        for n in nums:
+            color_count[n] += 1
+        
+        # loop through each group and replace the elements in num with the elements in the group
+        # print(color_group)
+        index = 0
+        for i in range(3):
+            for _ in range(color_count[i]):
+                nums[index] = i
+                index += 1
