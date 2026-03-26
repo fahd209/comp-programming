@@ -35,3 +35,31 @@ class Solution:
             for _ in range(color_count[i]):
                 nums[index] = i
                 index += 1
+
+
+
+# neetcode most optimal (needs review)
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+
+
+        i = 0
+        l = 0
+        r = len(nums) - 1
+
+        while i <= r:
+            if nums[i] == 0:
+                temp = nums[l]
+                nums[l] = nums[i]
+                nums[i] = temp
+                l += 1
+                i += 1
+            elif nums[i] == 2:
+                temp = nums[r]
+                nums[r] = nums[i]
+                nums[i] = temp
+                r -= 1
+            else:
+                i += 1
