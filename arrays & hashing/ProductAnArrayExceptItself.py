@@ -97,4 +97,28 @@ class Solution:
 
         return res
 
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+
+        n = len(nums)
+        right_prod = 1
+        left_prod = 1
+        L = 0
+        R = n - 1
+
+        res = [1] * n 
+
+        while L < n:
+            res[L] *= left_prod
+            res[R] *= right_prod
+
+            left_prod *= nums[L]
+            right_prod *= nums[R]
+
+            L += 1
+            R -= 1
+
+
+        return res
         
