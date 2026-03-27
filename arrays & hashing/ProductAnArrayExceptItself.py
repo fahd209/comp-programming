@@ -66,4 +66,35 @@ class Solution:
 
         # return result
 
+
+
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        prefix = [0] * n 
+        post_product = [0] * n
+        res = [0] * n
+
+        prod1 = 1
+        prod2 = 1
+
+        # getting the prefix
+        for i in range(n):
+            prefix[i] = prod1
+            prod1 *= nums[i]
+        
+        # getting suffix
+        for i in range(n - 1, -1, -1):
+            post_product[i] = prod2
+            prod2 *= nums[i] 
+
+        # prefix[i]: the product of all the items to the left of prefix[i] except prefix[i]
+        # suffix[i]: the product of all the items to the right of suffix[i] except suffix[i]
+        # multiplying prefix[i] and suffix[i] to get product of the array of except the item at i
+        for i in range(n):
+            res[i] = prefix[i] * post_product[i]
+
+        return res
+
         
