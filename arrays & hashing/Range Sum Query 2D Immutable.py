@@ -1,6 +1,6 @@
 class NumMatrix:
 
-    # init object then performe pre work to create sum of sub matrix
+    # init object then preform pre work to create sum of sub matrix
     def __init__(self, matrix: List[List[int]]):
         ROW, COL = len(matrix), len(matrix[0])
         self.matrix = [[0] * (COL + 1) for r in range(ROW + 1)]
